@@ -1,0 +1,52 @@
+// variables
+$primary_color: #218380;
+
+body {
+  background-color: $primary_color;
+  color: #FFFFFF;
+  font-family: 'Open Sans', sans-serif;
+  min-height: 1000px;
+
+  p {
+    color: blue;
+  }
+}
+nav {
+  background: #FFFFFF;
+
+  h1 {
+    color: $primary_color;
+    margin-top: 0;
+    padding: 10px;
+  }
+  .glyphicon-envelope {
+    color: $primary_color;
+    position: fixed;
+    right: 15px;
+    top: 25px;
+    font-size: 2em;
+    transition: color 0.5s ease;
+    &.light {
+      color: #FFFFFF; // transition color of icon on scroll
+    }
+  }
+}
+
+a.light {
+  color: #FFFFFF;
+}
+a.dark {
+  color: $primary_color;
+}
+h1 {
+  font-size: 4em;
+  letter-spacing: -3px;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 1.7em;
+}
+#photo-dev {
+  display: none;
+  margin: 0 auto;
+}
