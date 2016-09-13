@@ -16,36 +16,51 @@ window.addEventListener("scroll", changeNavIcon);
 
 /*===== HOME ======= */
 
-// create development button
-var devButton = document.getElementById("btn-dev");
-var container = document.getElementsByClassName("container")[0];
-
-// change image size of photo dev image on home page based on window height
-var homeImg = document.getElementById("photo-dev");
+/*
+  change image size of photo dev image on home page based on window height
+*/
+var homeImg = document.getElementsByClassName("photo-dev");
 var adjustHomeImageSize = function () {
   var imageHeight = window.innerHeight * 0.7;
-  homeImg.style.height = imageHeight + "px";
-  homeImg.style.width = "auto";
-  homeImg.style.display = "block";
+  console.log(imageHeight);
+  for(var i = 0; i < homeImg.length; i++) {
+    homeImg[i].style.height = imageHeight + "px";
+    homeImg[i].style.width = "auto";
+    homeImg[i].style.display = "inline";
+  }
 };
-
 window.addEventListener("load", adjustHomeImageSize);
 
-devButton.addEventListener("click", function(event){
-  event.preventDefault();
+/*
+  animate computer screen when user chooses portfolio
+*/
+var columns = document.getElementsByClassName("column");
+var potfolioButton = document.getElementsByClassName("btn-portfolio");
+var duration = 650;
 
-  // animate out the home container
-  $( container ).animate({
-    opacity: 0,
-    marginLeft: "-=200",
-  }, 650, function() {
-    // Animation complete.
+for (var i = 0; i < columns.length; i++) {
+  potfolioButton[i].addEventListener("click", function(event){
+    event.preventDefault();
 
-    // redirect to dev site
-    console.log("animation is done");
-    window.location = "file:///Users/lauraevans/Desktop/programming/portfolio_site/dev.html";
-  });
+    // split computer apart and fade
+    $( columns[0] ).animate({
+      opacity: 0,
+      left: "-=50"
+    },
+    {
+      start: function() {
+        $( columns[1] ).animate({
+          opacity: 0,
+          left: "+=50"
+        }, duration );
+      },
+      duration: duration,
+      complete: function() {
+        // Animation complete.
+        //window.location = "file:///Users/lauraevans/Desktop/programming/portfolio_site/index.html";
+        window.location = "file:///Users/lauraevans/Desktop/programming/portfolio_site/dev.html";
+      } // end complete function
+    }); // end
 
-
-  console.log(container);
-});
+  }); // end portfolio button event listener
+} // end for loop
