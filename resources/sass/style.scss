@@ -4,16 +4,16 @@
 
 // variables
 $primary_color: #218380;
+$primary_color_dark: #1b6966;
 
 body {
   background-color: $primary_color;
   color: #FFFFFF;
   font-family: 'Open Sans', sans-serif;
   min-height: 1000px;
-
-  p {
-    color: blue;
-  }
+}
+p {
+  font-size: 1.3em;
 }
 nav {
   background: #FFFFFF;
@@ -48,9 +48,11 @@ h1 {
   text-transform: uppercase;
 }
 h2 {
-  font-size: 1.7em;
+  font-size: 2.8em;
 }
-
+section {
+  padding: 50px;
+}
 /* ===== HOME ====== */
 body.home {
   .column {
@@ -66,6 +68,30 @@ body.home {
 body.dev-portfolio {
   h2 {
     animation: fadeMeIn 0.5s;
+  }
+  #opening {
+    p {
+      margin-bottom: 50px;
+    }
+    ul {
+      padding-left: 0;
+      margin-top: 10px;
+    }
+    li {
+      display: inline-block;
+      padding: 5px 10px;
+      margin-bottom: 3px;
+      border-radius: 5px;
+      &.built-with {
+        background: #144240;
+      }
+    }
+  }
+  #experience {
+    background: #1b6966;
+    ul {
+      margin-bottom: 50px;
+    }
   }
 }
 
