@@ -29,67 +29,73 @@
         <h3>Portfolio</h3>
 
         <!-- Carousel -->
-        <div id="portfolio-carousel" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#portfolio-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#portfolio-carousel" data-slide-to="1"></li>
-          </ol>
+        <div id="carousel-wrapper">
+          <div id="portfolio-carousel" class="carousel slide" data-ride="carousel">
 
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner" role="listbox">
-            <div class="item active" data-builtwith = "php html5">
-              <img src="images/dev_portfolio_ivie.png" alt="...">
-              <div class="carousel-caption">
-                ...
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <img src="images/dev_portfolio_blank.png" alt="...">
+                <div class="carousel-caption">
+                  Click me!!!
+                </div>
               </div>
-            </div>
-            <div class="item" data-builtwith = "laravel">
-              <img src="images/photo_dev.png" alt="...">
-              <div class="carousel-caption">
-                ...
+              <div class="item" data-builtwith = "php html5">
+                <img src="images/dev_portfolio_ivie.png" alt="...">
+                <div class="carousel-caption">
+                  ...
+                </div>
               </div>
+              <div class="item" data-builtwith = "laravel php">
+                <img src="images/dev_portfolio_kaylee.png" alt="...">
+                <div class="carousel-caption">
+                  ...
+                </div>
+              </div>
+              <div class="item" data-builtwith = "swift">
+                <img src="images/photo_dev.png" alt="...">
+                <div class="carousel-caption">
+                  ...
+                </div>
+              </div>
+              ...
             </div>
-            ...
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#portfolio-carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#portfolio-carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
+        </div><!-- End carousel wrapper -->
 
-          <!-- Controls -->
-          <a class="left carousel-control" href="#portfolio-carousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="right carousel-control" href="#portfolio-carousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-
-        <!-- end carousel -->
-
-
-        <p>Built with:</p>
         <ul>
-          <li id="php" class="built-with">PHP</li>
-          <li id="html5" class="">HTML5</li>
-          <li class="css3">CSS3</li>
-          <li class="javascript">Javascript</li>
-          <li class="">jQuery</li>
-          <li class="">Greensock</li>
-          <li class="">Wordpress</li>
-          <li>Swift</li>
-          <li>Laravel</li>
-          <li>Angular</li>
-          <li>MySQL</li>
-          <li class="">Bootstrap</li>
-          <li class="">AJAX</li>
-          <li class="">Git</li>
-          <li class="">Photoshop</li>
-          <li>Ruby</li>
-          <li>Ruby on Rails</li>
-          <li>Ionic</li>
-          <li>PERL</li>
-          <li>Python</li>
-          <li>ADA Accessibility</li>
+          <li id="php">PHP</li>
+          <li id="html5">HTML5</li>
+          <li id="css3">CSS3</li>
+          <li id="javascript" class="javascript">Javascript</li>
+          <li id="jquery">jQuery</li>
+          <li id="greensock">Greensock</li>
+          <li id="wordpress">Wordpress</li>
+          <li id="swift">Swift</li>
+          <li id="laravel">Laravel</li>
+          <li id="angular">Angular</li>
+          <li id="mysql">MySQL</li>
+          <li id="bootstrap">Bootstrap</li>
+          <li id="ajax">AJAX</li>
+          <li id="git">Git</li>
+          <li id="photoshop">Photoshop</li>
+          <li id="ruby">Ruby</li>
+          <li id="ror">Ruby on Rails</li>
+          <li id="ionic">Ionic</li>
+          <li id="perl">PERL</li>
+          <li id="python">Python</li>
+          <li id="ada">ADA Accessibility</li>
+          <li id="sass">SASS</li>
         </ul>
       </div>
     </section>
@@ -141,10 +147,29 @@
 
     // hook into carouself to change built with options per slide
     $('#portfolio-carousel').on('slide.bs.carousel', function (event) {
-  // do something…
-  console.log("something happened");
-  console.log(event.relatedTarget.getAttribute("data-builtwith"));
-})
+
+      //remove current built with class
+      var currentBuiltWith = document.getElementsByClassName("built-with");
+      for(var i = 0; i < currentBuiltWith.length; i++) {
+        currentBuiltWith[i].classList.remove("built-with");
+      }
+
+      // get builtwith data attribute of current carousel item and convert to array
+      var skillzData = event.relatedTarget.getAttribute("data-builtwith");
+
+      // exit if no skillz found
+      if(skillzData == null) {
+        return;
+      }
+
+      var skillz = event.relatedTarget.getAttribute("data-builtwith").split(" ");
+      console.log(skillz);
+
+      // add .built-with class to each skillz id
+      for(var i = 0; i < skillz.length; i++) {
+        document.getElementById(skillz[i]).classList.add("built-with");
+      }
+    })
   </script>
 
 </body>
