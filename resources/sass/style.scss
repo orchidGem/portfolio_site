@@ -75,10 +75,15 @@ body.home {
   .column {
     padding: 10px;
   }
-}
-.photo-dev {
-  display: none;
-  margin: 0 auto;
+  .photo-dev {
+    display: none;
+    margin: 0 auto;
+  }
+  a.btn-portfolio {
+    display: block;
+    font-size: 2em;
+    font-weight: 700;
+  }
 }
 
 /* ===== Dev Portfolio ====== */
