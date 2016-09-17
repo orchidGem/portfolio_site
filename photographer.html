@@ -7,6 +7,7 @@
   <title>The HTML5 Herald</title>
   <meta name="description" content="Laura Evans | Web Developer / Photographer">
   <meta name="author" content="SitePoint">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
@@ -17,9 +18,24 @@
 </head>
 
 <body class="photographer">
+
+  <div id="contact-modal">
+    <button id="btn-close-modal" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <p><span>City:</span><br>Tel Aviv</p>
+          <p><span>Email:</span><br><a href="laephoto@gmail.com">laephoto@gmail.com</a></p>
+          <p><span>Github:</span><br><a href="github.com/orchidgem">github.com/orchidgem</a></p>
+          <p><span>Linkedin:</span><br><a href="https://il.linkedin.com/in/laura-evans-19380811">https://il.linkedin.com/in/laura-evans-19380811</a></p>
+        </div>
+      </div>
+    </div>
+  </div><!-- end contact modal-->
+  
   <nav>
     <h1 class="text-center">Laura Evans</h1>
-    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+    <button id="btn-contact-modal" type="button"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button>
   </nav>
 
   <section id="opening" class="container text-center">
