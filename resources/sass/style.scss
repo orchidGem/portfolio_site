@@ -1,6 +1,8 @@
 // Table of Contents
 /* ===== HOME ====== */
 /* ===== Dev Portfolio ====== */
+/* ===== Photography ====== */
+
 
 // variables
 $primary_color: #218380;
@@ -10,7 +12,6 @@ body {
   background-color: $primary_color;
   color: #FFFFFF;
   font-family: 'Open Sans', sans-serif;
-  min-height: 1000px;
 }
 p {
   font-size: 1.3em;
@@ -85,7 +86,16 @@ body.home {
     font-weight: 700;
   }
 }
-
+.hideme
+{
+    opacity:0;
+    transform: translate3d(0px, 20px, 0px);
+}
+.showme {
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px);
+  transition: all 1s;
+}
 /* ===== Dev Portfolio ====== */
 body.dev-portfolio {
   h2 {
@@ -177,5 +187,12 @@ body.dev-portfolio {
       font-style: italic;
       font-weight: normal;
     }
+  }
+}
+
+/* ===== Photography Portfolio ====== */
+body.photographer {
+  img {
+    margin-bottom: 30px;
   }
 }

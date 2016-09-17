@@ -11,3 +11,20 @@ var changeNavIcon = function() {
    }
 };
 window.addEventListener("scroll", changeNavIcon);
+
+
+// fade in element on scroll
+var fadeElements = document.getElementsByClassName("hideme");
+var fadeInElement = function() {
+  for(i = 0; i < fadeElements.length; i++) {
+    // get elements dimensions
+    var elementPosition = fadeElements[i].getBoundingClientRect();
+
+    if(window.scrollY > elementPosition.top) {
+      fadeElements[i].classList.add("showme");
+      fadeElements[i].classList.remove("hideme");
+    }
+  }
+}; // end fadeInElement function
+
+window.addEventListener("scroll", fadeInElement);
