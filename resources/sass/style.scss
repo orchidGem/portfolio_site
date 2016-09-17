@@ -51,6 +51,9 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 30px;
   font-weight: 800;
   line-height: 1.3em;
+  @media screen and (max-width: 480px) {
+    line-height: 1em;
+  }
 }
 h1 {
   font-size: 4.5em;
@@ -136,13 +139,16 @@ body.home {
     padding: 10px;
   }
   .photo-dev {
-    display: none;
+    //display: none;
     margin: 0 auto;
   }
   a.btn-portfolio {
     display: block;
     font-size: 2em;
     font-weight: 700;
+    @media screen and (max-width: 480px) {
+      font-size: 1.5em;
+    }
   }
   .slideLeft {
     transform: translate3d(-50px, 0px, 0px);

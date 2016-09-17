@@ -41,11 +41,11 @@
   <div class="container">
     <div class="row">
       <div class="column col-xs-6 text-right">
-        <a class="btn-portfolio" href="file:///Users/lauraevans/Desktop/programming/portfolio_site/photographer.html"><img class="photo-dev" class="img-responsive" src="images/home_photo.png" /></a>
+        <a class="btn-portfolio" href="file:///Users/lauraevans/Desktop/programming/portfolio_site/photographer.html"><img class="photo-dev img-responsive" src="images/home_photo.png" /></a>
         <a class="btn-portfolio light" href="file:///Users/lauraevans/Desktop/programming/portfolio_site/photographer.html">Photographer</a>
       </div>
       <div class="column col-xs-6 text-left">
-        <a class="btn-portfolio" href="file:///Users/lauraevans/Desktop/programming/portfolio_site/web-developer.html"><img class="photo-dev" class="img-responsive" src="images/home_dev.png" /></a>
+        <a class="btn-portfolio" href="file:///Users/lauraevans/Desktop/programming/portfolio_site/web-developer.html"><img class="photo-dev img-responsive" src="images/home_dev.png" /></a>
         <a class="btn-portfolio light" href="file:///Users/lauraevans/Desktop/programming/portfolio_site/web-developer.html">Web Developer</a>
       </div>
     </div>
@@ -59,15 +59,18 @@
     */
     var homeImg = document.getElementsByClassName("photo-dev");
     var adjustHomeImageSize = function () {
+      // do only for desktop
+      if(window.innerHeight > window.innerWidth) {
+        return;
+      }
       var imageHeight = window.innerHeight * 0.7;
-      console.log(imageHeight);
       for(var i = 0; i < homeImg.length; i++) {
         homeImg[i].style.height = imageHeight + "px";
         homeImg[i].style.width = "auto";
         homeImg[i].style.display = "inline";
       }
     };
-    window.addEventListener("load", adjustHomeImageSize);
+    //window.addEventListener("load", adjustHomeImageSize);
 
     /*
       animate computer screen when user chooses portfolio
