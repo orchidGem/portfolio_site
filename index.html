@@ -25,17 +25,16 @@
   <div class="container">
     <div class="row">
       <div class="column col-xs-6 text-right">
-        <a class="btn-portfolio light" href=""><img class="photo-dev" class="img-responsive" src="images/home_photo.png" /></a>
-        <a class="btn-portfolio light" href="">Photographer</a>
+        <a class="btn-portfolio" href="file:///Users/lauraevans/Desktop/programming/portfolio_site/photographer.html"><img class="photo-dev" class="img-responsive" src="images/home_photo.png" /></a>
+        <a class="btn-portfolio light" href="file:///Users/lauraevans/Desktop/programming/portfolio_site/photographer.html">Photographer</a>
       </div>
       <div class="column col-xs-6 text-left">
-        <a class="btn-portfolio light" href=""><img class="photo-dev" class="img-responsive" src="images/home_dev.png" /></a>
-        <a class="btn-portfolio light" href="">Web Developer</a>
+        <a class="btn-portfolio" href="file:///Users/lauraevans/Desktop/programming/portfolio_site/web-developer.html"><img class="photo-dev" class="img-responsive" src="images/home_dev.png" /></a>
+        <a class="btn-portfolio light" href="file:///Users/lauraevans/Desktop/programming/portfolio_site/web-developer.html">Web Developer</a>
       </div>
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script type="text/javascript" src="resources/js/app.js"></script>
 
   <script>
@@ -65,25 +64,17 @@
       portfolioButtons[i].addEventListener("click", function(event){
         event.preventDefault();
 
-        // split computer apart and fade
-        $( columns[0] ).animate({
-          opacity: 0,
-          left: "-=50"
-        },
-        {
-          start: function() {
-            $( columns[1] ).animate({
-              opacity: 0,
-              left: "+=50"
-            }, duration );
-          },
-          duration: duration,
-          complete: function() {
-            // Animation complete.
-            //window.location = "file:///Users/lauraevans/Desktop/programming/portfolio_site/index.html";
-            window.location = "file:///Users/lauraevans/Desktop/programming/portfolio_site/dev.html";
-          } // end complete function
-        }); // end
+        //slide columns and fade
+        columns[0].classList.add("slideLeft");
+        columns[1].classList.add("slideRight");
+
+        //var link = event.href;
+        var link = event.currentTarget.href;
+
+        // redirect user to dev or photo page
+        window.setTimeout(function(){
+          window.location.href = link;
+        }, 900);
 
       }); // end portfolio button event listener
     } // end for loop

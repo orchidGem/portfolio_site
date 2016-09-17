@@ -71,6 +71,18 @@ h5 {
 section {
   padding: 50px;
 }
+
+.hideme
+{
+    opacity:0;
+    transform: translate3d(0px, 20px, 0px);
+}
+.showme {
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px);
+  transition: all 1s;
+}
+
 /* ===== HOME ====== */
 body.home {
   .column {
@@ -85,17 +97,18 @@ body.home {
     font-size: 2em;
     font-weight: 700;
   }
+  .slideLeft {
+    transform: translate3d(-50px, 0px, 0px);
+    opacity: 0;
+    transition: all 1s;
+  }
+  .slideRight{
+    transform: translate3d(50px, 0px, 0px);
+    opacity: 0;
+    transition: all 1s;
+  }
 }
-.hideme
-{
-    opacity:0;
-    transform: translate3d(0px, 20px, 0px);
-}
-.showme {
-  opacity: 1;
-  transform: translate3d(0px, 0px, 0px);
-  transition: all 1s;
-}
+
 /* ===== Dev Portfolio ====== */
 body.dev-portfolio {
   h2 {
