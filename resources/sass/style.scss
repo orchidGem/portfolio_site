@@ -41,6 +41,9 @@ h1 {
 h2 {
   font-size: 3.5em;
   text-transform: uppercase;
+  @media screen and (max-width: 750px) {
+    font-size: 3em;
+  }
 }
 h3 {
   font-size: 2.5em;
@@ -73,7 +76,7 @@ a:hover {
 .showme {
   opacity: 1;
   transform: translate3d(0px, 0px, 0px);
-  transition: all 1s;
+  transition: all 1.5s;
 }
 
 /* ===== NAV ====== */
@@ -95,6 +98,7 @@ nav {
     transition: color 0.5s ease;
     background: none;
     border: none;
+    z-index: 999;
     &.light {
       color: #FFFFFF; // transition color of icon on scroll
     }
@@ -301,5 +305,6 @@ body.dev-portfolio {
 body.photographer {
   img {
     margin-bottom: 30px;
+    border: 1px solid #FFFFFF;
   }
 }

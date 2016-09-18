@@ -12,7 +12,9 @@ var changeNavIcon = function() {
 };
 window.addEventListener("scroll", changeNavIcon);
 
-/* === toggle contact modal === */
+/* ==============================
+  toggle contact modal
+ ============================== */
 var contactModal = document.getElementById("contact-modal");
 var buttonCloseModal = document.getElementById("btn-close-modal");
 // icon variable declared in function above
@@ -23,14 +25,18 @@ var toggleModal = function() {
 icon.addEventListener("click", toggleModal);
 buttonCloseModal.addEventListener("click", toggleModal);
 
-/* === fade in element on scroll === */
+/* ==============================
+  fade in element on scroll
+============================== */
 var fadeElements = document.getElementsByClassName("hideme");
+var windowHeight = innerHeight;
 var fadeInElement = function() {
   for(i = 0; i < fadeElements.length; i++) {
     // get elements dimensions
     var elementPosition = fadeElements[i].getBoundingClientRect();
+    var scrollAmount = windowHeight + window.scrollY;
 
-    if(window.scrollY > elementPosition.top) {
+    if(scrollAmount > (elementPosition.top + window.scrollY)) {
       fadeElements[i].classList.add("showme");
       fadeElements[i].classList.remove("hideme");
     }
