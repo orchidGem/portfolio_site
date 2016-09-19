@@ -88,6 +88,10 @@ nav {
     color: $primary_color;
     margin-top: 0;
     padding: 10px;
+    a {
+      color: $primary_color;
+      text-decoration: none;
+    }
   }
   #btn-contact-modal {
     color: $primary_color;
@@ -264,7 +268,7 @@ body.dev-portfolio {
   }
 
   #experience {
-    background: #1b6966;
+    background: $primary_color_dark;
     ul {
       margin-bottom: 50px;
       ul {
@@ -306,5 +310,8 @@ body.photographer {
   img {
     margin-bottom: 30px;
     border: 1px solid #FFFFFF;
+  }
+  #families {
+    background-color: $primary_color_dark;
   }
 }
