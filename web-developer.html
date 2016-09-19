@@ -52,31 +52,28 @@
 
               <!-- Wrapper for slides -->
               <div class="carousel-inner" role="listbox">
+
                 <div class="item active">
-                  <img src="images/dev_portfolio_blank.png" alt="...">
+                  <img src="images/dev_portfolio_blank.jpg" alt="Check out my portfolio">
                   <div class="carousel-caption">
-                    Click me!!!
+                    View my portfolio, along with the technologies I used.
                   </div>
-                </div>
-                <div class="item" data-builtwith = "php html5">
-                  <img src="images/dev_portfolio_ivie.png" alt="...">
-                  <div class="carousel-caption">
-                    ...
-                  </div>
-                </div>
-                <div class="item" data-builtwith = "laravel php">
-                  <img src="images/dev_portfolio_kaylee.png" alt="...">
+                </div><!-- end item -->
+
+                <div class="item" data-builtwith="php html javascript css wordpress sass jquery bootstrap mysql">
+                  <img src="images/dev_portfolio_ivie.jpg" alt="...">
                   <div class="carousel-caption">
                     ...
                   </div>
-                </div>
-                <div class="item" data-builtwith = "swift">
-                  <img src="images/photo_dev.png" alt="...">
+                </div><!-- end item -->
+
+                <div class="item" data-builtwith="swift python">
+                  <img src="images/dev_portfolio_ivie.jpg" alt="...">
                   <div class="carousel-caption">
                     ...
                   </div>
-                </div>
-                ...
+                </div><!-- end item -->
+
               </div>
 
               <!-- Controls -->
@@ -93,8 +90,8 @@
 
           <ul>
             <li id="php">PHP</li>
-            <li id="html5">HTML5</li>
-            <li id="css3">CSS3</li>
+            <li id="html">HTML5</li>
+            <li id="css">CSS3</li>
             <li id="javascript" class="javascript">Javascript</li>
             <li id="jquery">jQuery</li>
             <li id="greensock">Greensock</li>
@@ -199,28 +196,31 @@
   })
 
     // hook into carouself to change built with options per slide
+    var currentSkillsElements = []; // empty for default
     $('#portfolio-carousel').on('slide.bs.carousel', function (event) {
 
       //remove current built with class
-      var currentBuiltWith = document.getElementsByClassName("built-with");
-      for(var i = 0; i < currentBuiltWith.length; i++) {
-        currentBuiltWith[i].classList.remove("built-with");
+      if(currentSkillsElements.length > 0) {
+        for(var i = 0; i < currentSkillsElements.length; i++) {
+          currentSkillsElements[i].classList.toggle("built-with");
+        }
       }
 
       // get builtwith data attribute of current carousel item and convert to array
-      var skillzData = event.relatedTarget.getAttribute("data-builtwith");
+      var newSkillzData = event.relatedTarget.getAttribute("data-builtwith");
 
       // exit if no skillz found
-      if(skillzData == null) {
+      if(newSkillzData == null) {
         return;
       }
 
-      var skillz = event.relatedTarget.getAttribute("data-builtwith").split(" ");
-      console.log(skillz);
+      var newSkillz = newSkillzData.split(" ");
+      currentSkillsElements = [];
 
       // add .built-with class to each skillz id
-      for(var i = 0; i < skillz.length; i++) {
-        document.getElementById(skillz[i]).classList.add("built-with");
+      for(var i = 0; i < newSkillz.length; i++) {
+        document.getElementById(newSkillz[i]).classList.toggle("built-with");
+        currentSkillsElements.push(document.getElementById(newSkillz[i]));
       }
     })
   </script>
