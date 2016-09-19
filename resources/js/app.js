@@ -20,6 +20,13 @@ var buttonCloseModal = document.getElementById("btn-close-modal");
 // icon variable declared in function above
 var toggleModal = function() {
   contactModal.classList.toggle("showme");
+  //disable scroll on show
+  if(contactModal.classList.contains("showme")) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
+
 }; // end toggleModal function
 
 icon.addEventListener("click", toggleModal);
